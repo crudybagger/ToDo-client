@@ -7,7 +7,6 @@ export const ToDo = () => {
 
     return (
       <>
-        <h1>To Do List</h1>
         <form onSubmit={(e) => {
           e.preventDefault();
           if (!newTodo) return;
@@ -26,8 +25,8 @@ export const ToDo = () => {
         </button>
         </form>
         <h2>Todos</h2>
-        {todos.filter(t => !t.completed).length > 0 ? <ul>
-          {todos.filter(t => !t.completed).map((todo, index) => (
+        {todos?.filter(t => !t.completed).length > 0 ? <ul>
+          {todos?.filter(t => !t.completed).map((todo, index) => (
             <li key={index}>
               {todo.task}
               <button onClick={()=>{

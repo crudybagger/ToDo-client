@@ -1,5 +1,6 @@
 import { useAuth } from '../Context/AuthContext'
 import {useRef} from 'react' 
+import { Link } from 'react-router-dom';
 export const Signup = () => {
   const { signUp } = useAuth();
   const emailRef = useRef<HTMLInputElement>(null)
@@ -30,6 +31,7 @@ export const Signup = () => {
         <br/>
         <button type="submit">Signup</button>
       </form>
+      Already have an account? <Link to='/login'>Login</Link>
       
     </div>
   )

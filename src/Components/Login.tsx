@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../Context/AuthContext'
 import {useRef} from 'react' 
 export const Login = () => {
@@ -21,8 +22,13 @@ export const Login = () => {
         <input type="password" placeholder='Enter your password' id='password' ref={passwordRef}/>
         <br/>
         <button type="submit">Login</button>
+        
       </form>
-      
+      <p>Login as
+      <a onClick={async () => await login('test@test.com', 'test')}> Guest 1 ,</a>
+      <a onClick={async () => await login('abc@abc.com', 'abc')}> Guest 2</a>
+      </p>
+      <p>Don't have an account? <Link to="/signup">Create New Account</Link></p>
     </div>
   )
 }
