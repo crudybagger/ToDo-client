@@ -1,5 +1,8 @@
+const base_url = import.meta.env.VITE_API_URL || 'https://localhost:3000'
+
+
 export const usePost = async (relativePath : string, headers : any, data : any) => {
-    return fetch(`${import.meta.env.VITE_API_URL}${relativePath}`, {
+    return fetch(`${base_url}${relativePath}`, {
         method: 'POST',
         headers: {
            ...headers,
@@ -11,7 +14,7 @@ export const usePost = async (relativePath : string, headers : any, data : any) 
 }
 
 export const useGet = async (relativePath : string, headers : any) => {
-    return fetch(`${import.meta.env.VITE_API_URL}${relativePath}`, {
+    return fetch(`${base_url}${relativePath}`, {
         method: 'GET',
         headers: {
            ...headers,

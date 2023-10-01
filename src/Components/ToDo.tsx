@@ -8,7 +8,7 @@ export const ToDo = () => {
 
     return (
       <>
-        <form onSubmit={(e) => {
+        <form className='form' onSubmit={(e) => {
           e.preventDefault();
           if (!newTodo) return;
           addTodo(newTodo);
