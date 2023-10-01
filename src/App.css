@@ -1,8 +1,19 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  display: grid;
 }
-#root > h1 {
-  justify-self: flex-start;
+#root > h2 {
+  justify-self: center;
+  margin-top: 1em;
+  height: fit-content;
+  align-self: last baseline;
+}
+.footer {
+  background-color: #242424;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

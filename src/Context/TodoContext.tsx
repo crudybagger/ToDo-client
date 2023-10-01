@@ -38,8 +38,8 @@ const TodoProvider = ({ children } : {children : React.ReactNode}) => {
         usePost(`/todo/delete/${todo._id}`, {'token': `${user?.token}`}, {});
     }
     const toggleTodo = (todo: ToDo) => {
-        setTodos(todos.map(t => t._id === todo._id ? {...todo, completed:!todo.completed} : t))
-        usePost(`/todo/update`, {'token': `${user?.token}`}, {todoId : todo._id, completed :!todo.completed});
+        setTodos(todos.map(t => t._id === todo._id ? {...todo, completed : !todo.completed} : t))
+        usePost(`/todo/update`, {'token': `${user?.token}`}, {todoId : todo._id, completed : !todo.completed});
     }
 
     const val = {

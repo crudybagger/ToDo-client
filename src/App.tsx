@@ -16,8 +16,10 @@ function App() {
         <Route path="/signup" Component={Signup} />"
         <Route path="/todo" Component={ToDo} />
       </Routes>
+    <div className='footer'>
     {user ? <>Signed in as<strong> {user.username}</strong></> : ""}
     <p>{user ? (<>Not {user.username}? <Link to="/login" onClick={logout}>Logout and Login with another account</Link></>) : ""}</p>
+    </div>
     </>
   )
 }

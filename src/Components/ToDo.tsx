@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useTodoContext } from '../Context/TodoContext'
+import '../styles/ToDo.css'
 
 export const ToDo = () => {
     const {todos, addTodo, removeTodo, toggleTodo } = useTodoContext();
@@ -19,41 +20,22 @@ export const ToDo = () => {
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder='Add a new todo'
         />
-        <button
-          type='submit'>
-            Add
-        </button>
+        <button type='submit'>+</button>
         </form>
-        <h2>Todos</h2>
-        {todos?.filter(t => !t.completed).length > 0 ? <ul>
-          {todos?.filter(t => !t.completed).map((todo, index) => (
-            <li key={index}>
-              {todo.task}
-              <button onClick={()=>{
-                toggleTodo(todo);
-              }}>
-              Mark as Completed
-            </button>
-            </li>
+        
+        {todos?.length > 0 ? <div className='todo-list'>
+          <h2>Todos</h2>
+          {todos?.map((todo) => (
+            <label key={todo._id} className={`todo ${todo.completed ? 'checked' : ''}`}>
+            <input  type="checkbox" checked={todo.completed} onChange={() => {toggleTodo(todo)}}/>
+            {todo.task}
+            <div className='delete-button' onClick={() => { removeTodo(todo)}}><i className="fa fa-trash" aria-hidden="true" ></i></div>
+            </label>
           ))}
-        </ul> :
+        </div> :
           <p>No Todos, Add a to do to get started</p>
         }
-        <h2>Completed</h2>
-        {todos.filter(t => t.completed).length > 0 ? <ul>
-          {todos.filter(t => t.completed).map((todo, index) => (
-            <li key={index}>
-              {todo.task}
-              <button onClick={()=>{
-                removeTodo(todo);
-                }}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul> :
-          <p>No Completed Todos</p>
-        }
+
       </>
     )
 }
