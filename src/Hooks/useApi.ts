@@ -1,4 +1,4 @@
-const base_url = import.meta.env.VITE_API_URL || 'https://localhost:3000'
+const base_url = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 
 export const usePost = async (relativePath : string, headers : any, data : any) => {
