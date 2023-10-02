@@ -1,22 +1,9 @@
 {
     "redirects": [
-<<<<<<< Updated upstream
-      { "source": "/(.)", "destination": "/", "permanent": true }
-    ]
-  }
-=======
       {
-        "source": "/(.*)",
+        "source": "/*",
         "destination": "/",
-        "statusCode": 301,
-        "has": [
-          {
-            "type": "pathname",
-            "value": "^/$"
-          }
-        ]
+        "permanent": true
       }
     ]
-  }
-  
->>>>>>> Stashed changes
+}  
