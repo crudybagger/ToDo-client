@@ -1,7 +1,7 @@
 {
     "redirects": [
       {
-        "source": "/(?!.*\\.[a-z]+)(?!.*\\/)$",
+        "source": "/((?!.*\\.[a-z]+)(?!.*\\/)$)",
         "destination": "/",
         "permanent": true
       }
