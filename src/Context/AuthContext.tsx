@@ -31,7 +31,7 @@ const AuthContext = createContext<AuthContextType>({
 export const useAuth = () : AuthContextType => useContext(AuthContext);
 
 function AuthProvider({ children } : { children : React.ReactNode }) {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || '{}'));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') as string));;
     const navigate = useNavigate();
 
     const login = async (email : string, password : string) => {
