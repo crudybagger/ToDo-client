@@ -27,18 +27,16 @@ const TodoProvider = ({ children } : {children : React.ReactNode}) => {
     useEffect(() => {
         user && useGet(`/todo/`, {'token': `${user?.token}`}).then((res) => setTodos(res));
     }, [user])
-    
     const addTodo = async (todo: string) => {
         const todoDetails : ToDo = await usePost("/todo", {'token': `${user?.token}`}, {task : todo});
         setTodos([...todos, todoDetails])
-        
     }
     const removeTodo = (todo: ToDo) => {
         setTodos(todos.filter(t => t._id !== todo._id))
         usePost(`/todo/delete/${todo._id}`, {'token': `${user?.token}`}, {});
     }
     const toggleTodo = (todo: ToDo) => {
-        setTodos(todos.map(t => t._id === todo._id ? {...todo, completed : !todo.completed} : t))
+        setTodos(todos.map(t => t._id === todo._id ? {...t, completed : !t.completed} : t))
         usePost(`/todo/update`, {'token': `${user?.token}`}, {todoId : todo._id, completed : !todo.completed});
     }
 
