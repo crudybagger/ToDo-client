@@ -2,7 +2,7 @@ import { ToDo } from './Components/ToDo'
 import { Login } from './Components/Login'
 import { Signup } from './Components/Signup'
 import { useAuth } from './Context/AuthContext'
-import { Routes, Route, Link, useNavigate, redirect, Navigate } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom'
 import './App.css'
 
 function App() {
