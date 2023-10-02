@@ -5,6 +5,7 @@ import './index.css'
 import AuthProvider from './Context/AuthContext.tsx'
 import TodoProvider from './Context/TodoContext.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -15,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </TodoProvider>
     </AuthProvider>
     </BrowserRouter>
+    <Analytics />
   </React.StrictMode>,
 )
