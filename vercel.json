@@ -1,9 +1,8 @@
 {
-    "redirects": [
+    "rewrites": [
       {
         "source": "/((?!.*\\.[a-z]+)(?!.*\\/)$)",
-        "destination": "/",
-        "permanent": true
+        "destination": "/"
       }
     ]
 }  
