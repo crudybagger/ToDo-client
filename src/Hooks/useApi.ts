@@ -10,7 +10,7 @@ export const usePost = async (relativePath : string, headers : any, data : any) 
         },
         // credentials: 'same-origin',
         body: JSON.stringify(data),
-    }).then(res => res.json()).catch(err => console.log(err))
+    }).then(res => res.json()).catch(err => {alert(err);console.log(err)})
 }
 
 export const useGet = async (relativePath : string, headers : any) => {

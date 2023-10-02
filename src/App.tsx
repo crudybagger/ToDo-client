@@ -2,7 +2,7 @@ import { ToDo } from './Components/ToDo'
 import { Login } from './Components/Login'
 import { Signup } from './Components/Signup'
 import { useAuth } from './Context/AuthContext'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, redirect } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -12,6 +12,10 @@ function App() {
     <>
       <h2 onClick={() => user && navigate("/todo")}>ToDo List</h2>
       <Routes>
+        <Route path="/" loader={()=>{
+          if(!user?.token) return redirect("/login");
+          return redirect("/todo")
+        }} Component={Login}/>
         <Route path='/login' Component={Login} />
         <Route path="/signup" Component={Signup} />"
         <Route path="/todo" Component={ToDo} />
